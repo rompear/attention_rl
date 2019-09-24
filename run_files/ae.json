@@ -1,0 +1,15 @@
+{
+  "runs":[
+    {
+      "name": "ae",
+      "model": "ae",
+      "phase": "train",
+      "config": {
+        "debug": true,
+        "hyperparameters": {
+          "a":0.1
+        }
+      }
+    }
+  ]
+}

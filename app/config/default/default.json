@@ -1,0 +1,32 @@
+{
+  "hyperparameters": {
+    "lr": 0.00025,
+    "batch_size": 32,
+    "capacity": 30000,
+    "dataloader_shuffle": false,
+    "epoch": 200000,
+    "eps_end": 0.01,
+    "eps_start": 1,
+    "eps_decay": 850000,
+    "gamma": 0.99,
+    "target_update": 40000,
+    "show_performance": 10000,
+    "training_frequency": 4
+  },
+  "dataloader_num_workers": 0,
+  "debug": true,
+  "model_directory": "/this/path/needs/to/be/replaced",
+  "output_directory": "/home/romeo/Desktop/attention/stored_models/stored_models",
+  "dataset_directory": "/datadrive/datasets/",
+  "comet_project_name": "debug",
+  "log_n_batches": 10000000,
+  "env_name": "Breakout-v4",
+  "number_of_lives": 5,
+  "n_actions": 4,
+  "input_dimension": 128,
+  "stacked_frames": true,
+  "ram": false,
+  "screen_width": 90,
+  "screen_height": 40
+}
+

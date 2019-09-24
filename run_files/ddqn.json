@@ -1,0 +1,15 @@
+{
+  "runs":[
+    {
+      "name": "ddqn",
+      "model": "ddqn",
+      "phase": "train",
+      "config": {
+        "debug": true,
+        "hyperparameters": {
+          "a":0.1
+        }
+      }
+    }
+  ]
+}

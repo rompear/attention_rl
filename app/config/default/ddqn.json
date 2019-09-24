@@ -1,0 +1,12 @@
+{
+  "phases": {
+    "train": {
+      "hyperparameters": {
+
+      }
+    },
+    "test": {},
+    "inference":{}
+  },
+  "hyperparameters": {}
+}
