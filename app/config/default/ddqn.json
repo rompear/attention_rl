@@ -2,10 +2,17 @@
   "phases": {
     "train": {
       "hyperparameters": {
-
       }
     },
-    "test": {},
+    "test": {
+      "hyperparameters": {
+        "eps_decay": 1000000,
+        "start_learning_after": 10000,
+        "capacity": 10000,
+        "target_update": 1000
+      },
+      "model_directory": "/models/debug/more_convolutions/"
+    },
     "inference":{}
   },
   "hyperparameters": {}

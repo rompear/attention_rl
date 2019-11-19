@@ -1,6 +1,4 @@
 from app.worker.ddqn.ddqn import DDQN
-from app.worker.ae.ae import AE
-
 from app.config.config_factory import ConfigFactory
 from app.util.logger.logger import Logger
 from app.data.data_loader.data_loader_factory import DataLoaderFactory
@@ -13,18 +11,13 @@ class WorkerFactory:
             'train': DDQN,
             'test': DDQN,
             'inference': DDQN,
-        },
-        'ae': {
-            'train': AE,
-            'test': AE,
-            'inference': AE,
-        },
+        }
     }
 
     def __init__(self, config: ConfigFactory,
-                 model: Dict[str: Any],
+                 model: Dict[str, Any],
                  logger: Logger,
-                 dataloader: Dict[str: DataLoaderFactory],
+                 dataloader: Dict[str, DataLoaderFactory],
                  savers: Savers) -> None:
         self.config = config
         self.worker = self.router[config.model][config.phase]

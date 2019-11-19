@@ -16,7 +16,14 @@ class Logger:
         self.BEGIN_VALUE = 0
         self.LAST_ITEM = -1
 
-    def stamp_data(self, scalar_dict: Dict[str: Any], iteration, phase, histogram_dict: Dict[str: Any] = None, video_dict: Dict[str: Any] = None) -> None:
+    def stamp_data(self,
+                   scalar_dict: Dict[str, Any],
+                   iteration: int,
+                   phase: str,
+                   histogram_dict: Dict[str, Optional[Any]] = None,
+                   video_dict: Dict[str, Optional[Any]] = None,
+                   image_dict: Dict[str, Optional[Any]] = None) -> None:
+
         for key, value in scalar_dict.items():
             self.tensorboard_logger.write_scalar(key + '_' + phase, value, iteration)
             self.comet.log_metric(key + '_' + phase, value, step=iteration)
@@ -29,13 +36,21 @@ class Logger:
             for key, value in video_dict.items():
                 self.tensorboard_logger.write_video(key + '_' + phase, value, iteration)
 
+        if image_dict:
+            for key, value in image_dict.items():
+                self.tensorboard_logger.write_image(key + '_' + phase, value, iteration)
+
     def is_new_phase(self, phase: str) -> bool:
         return phase != self.current_phase
 
     def is_first_log(self, iteration: int) -> bool:
         return iteration == self.BEGIN_VALUE
 
-    def log_metadata(self, phase: str, steps: int, info = None) -> Dict[str:any]:
+    def log_metadata(self,
+                     phase: str,
+                     steps: int,
+                     info = None) -> Dict[str, Any]:
+
         if self.config.env_name == self.config.special_game_enc():
             if steps == 0:
                 new_ball = True

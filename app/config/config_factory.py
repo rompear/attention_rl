@@ -13,7 +13,6 @@ class HyperParameters:
 class ConfigFactory:
     router:Dict[str, str] = {
         'ddqn': os.path.dirname(__file__) + '/default/ddqn.json',
-        'ae': os.path.dirname(__file__) + '/default/ae.json',
         'default': os.path.dirname(__file__) + '/default/default.json',
     }
 
@@ -90,8 +89,8 @@ class ConfigFactory:
     def is_debug(self) -> bool:
         return self.debug
 
-    def ae_path(self) -> str:
-        return self.output_directory + '/ae/'
+    def is_pretrain(self) -> bool:
+        return self.hyperparameters.pretrain
 
     def tensorboard_path(self) -> str:
         if self.debug:
@@ -110,6 +109,10 @@ class ConfigFactory:
             return self.output_directory + '/states/debug/' + self.start_time + '/'
 
         return self.output_directory + '/states/experiments/' + self.start_time + '/'
+
+    def load_pretrain(self) -> str:
+        return self.output_directory + '/data/pretrain.p'
+
 
     def special_game_enc(self) -> str:
         return "Breakout-ram-v4"

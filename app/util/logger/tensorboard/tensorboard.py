@@ -12,7 +12,10 @@ class Tensorboard:
         self.writer.add_scalar(title, value, iteration)
 
     def write_video(self, title, value, iteration) -> None:
-        self.writer.add_video(title, value, global_step=iteration, fps=32)
+        self.writer.add_video(title, value, global_step=iteration, fps=self.config.fps)
+
+    def write_image(self, title, value, iteration) -> None:
+        self.writer.add_image(title, value, global_step=iteration, dataformats='CHW')
 
     def write_histogram(self, title, value, iteration) -> None:
         self.writer.add_histogram(title, value, iteration)

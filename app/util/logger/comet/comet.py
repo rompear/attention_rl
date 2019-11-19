@@ -2,8 +2,8 @@ from comet_ml import Experiment, ExistingExperiment
 from app.config.config_factory import ConfigFactory
 
 class Comet:
-    api_key = "wOGftZdtZztTAzMAEMLGo2TV5"
-    username = "rompear"
+    api_key = "key"
+    username = "username"
 
     def __init__(self, config: ConfigFactory) -> None:
         self.config = config
@@ -23,6 +23,7 @@ class Comet:
 
     def register_existing_experiment(self) -> ExistingExperiment:
         return ExistingExperiment(api_key=self.api_key, previous_experiment=self.comet_key)
+
 
     def register_experiment(self) -> Experiment:
         return Experiment(api_key=self.api_key, project_name=self.name, workspace=self.username)

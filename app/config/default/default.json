@@ -2,16 +2,21 @@
   "hyperparameters": {
     "lr": 0.00025,
     "batch_size": 32,
-    "capacity": 30000,
+    "start_learning_after": 5000,
+    "capacity": 5000,
     "dataloader_shuffle": false,
     "epoch": 200000,
     "eps_end": 0.01,
     "eps_start": 1,
-    "eps_decay": 850000,
+    "eps_decay": 8500000,
     "gamma": 0.99,
     "target_update": 40000,
     "show_performance": 10000,
-    "training_frequency": 4
+    "training_frequency": 4,
+    "scheduler_step_size": 400000,
+    "scheduler_gamma": 0.1,
+    "pretrain": true,
+    "k": 12000
   },
   "dataloader_num_workers": 0,
   "debug": true,
@@ -20,13 +25,12 @@
   "dataset_directory": "/datadrive/datasets/",
   "comet_project_name": "debug",
   "log_n_batches": 10000000,
-  "env_name": "Breakout-v4",
+  "env_name": "BreakoutNoFrameskip-v4",
   "number_of_lives": 5,
   "n_actions": 4,
   "input_dimension": 128,
   "stacked_frames": true,
   "ram": false,
-  "screen_width": 90,
-  "screen_height": 40
+  "fps":32
 }
 

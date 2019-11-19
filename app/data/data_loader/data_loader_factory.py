@@ -3,18 +3,12 @@ from app.config.config_factory import ConfigFactory
 
 class DataLoaderFactory:
     def __init__(self, config: ConfigFactory, dataset_phase: Dataset, phase: str) -> None:
-
         self.router = {
             'ddqn': {
                 'train': self.default,
                 'test': self.default,
                 'inference': self.default,
             },
-            'ae': {
-                'train': self.default,
-                'test': self.default,
-                'inference': self.default,
-            }
         }
 
         self.dataset_phase = dataset_phase
